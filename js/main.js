@@ -9,10 +9,10 @@ const getChefBirthday = async (id) => {
     try {
         const recipe = await fetchJson(`https://dummyjson.com/recipes/${id}`);
         userId = await fetchJson(`https://dummyjson.com/users/${recipe.userId}`);
+        console.log('Data di nascita dello chef:', userId.birthDate);
     } catch (error) {
         console.error(error)
     }
-    console.log('Data di nascita dello chef:', userId.birthDate);
 }
 
 // TEST

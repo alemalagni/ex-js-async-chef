@@ -5,10 +5,15 @@ async function fetchJson(url) {
 }
 
 const getChefBirthday = async (id) => {
-    const recipe = await fetchJson(`https://dummyjson.com/recipes/${id}`);
-    const userId = await fetchJson(`https://dummyjson.com/users/${recipe.userId}`);
-    return userId.birthDate;
+    let userId;
+    try {
+        const recipe = await fetchJson(`https://dummyjson.com/recipes/${id}`);
+        userId = await fetchJson(`https://dummyjson.com/users/${recipe.userId}`);
+    } catch (error) {
+        console.error(error)
+    }
+    console.log('Data di nascita dello chef:', userId.birthDate);
 }
 
 // TEST
-console.log(getChefBirthday(1))
+getChefBirthday(10)

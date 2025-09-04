@@ -4,6 +4,11 @@ async function fetchJson(url) {
     return obj;
 }
 
-function getChefBirthday(id) {
-    // const recipe = await ('fetch ')
+const getChefBirthday = async (id) => {
+    // const recipe = await fetchJson(`https://dummyjson.com/users/${userId}`);
+    const recipe = await fetchJson(`https://dummyjson.com/recipes/${id}`);
+    console.log(recipe);
 }
+
+// TEST
+console.log(getChefBirthday(1))
